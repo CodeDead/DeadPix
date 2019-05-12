@@ -12,7 +12,7 @@ using System.Windows;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("CodeDead")]
 [assembly: AssemblyProduct("DeadPix")]
-[assembly: AssemblyCopyright("Copyright © CodeDead 2018")]
+[assembly: AssemblyCopyright("Copyright © 2019 CodeDead")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

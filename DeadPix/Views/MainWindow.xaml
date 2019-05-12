@@ -8,29 +8,29 @@
     mc:Ignorable="d" UseLayoutRounding="True"
     UseNativeChrome="True" TitleTextAlignment="Center"
     WindowStartupLocation="CenterScreen"
-    Title="DeadPix" Height="350" Width="500" Icon="/DeadPix;component/Resources/DeadPix.png">
+    Title="DeadPix" Height="300" Width="450" Icon="/DeadPix;component/Resources/DeadPix.png">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition />
         </Grid.RowDefinitions>
 
         <Menu IsMainMenu="True">
-            <MenuItem Header="File">
+            <MenuItem Header="_File">
                 <MenuItem Header="Exit" Click="ExitMenuItem_OnClick">
                     <MenuItem.Icon>
                         <Image Width="16" Height="16" Source="/DeadPix;component/Resources/exit.png" />
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
-            <MenuItem Header="Tools">
+            <MenuItem Header="_Tools">
                 <MenuItem Header="Settings">
                     <MenuItem.Icon>
                         <Image Width="16" Height="16" Source="/DeadPix;component/Resources/settings.png" />
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
-            <MenuItem Header="Help">
+            <MenuItem Header="_Help">
                 <MenuItem Header="Help" Click="HelpMenuItem_OnClick">
                     <MenuItem.Icon>
                         <Image Width="16" Height="16" Source="/DeadPix;component/Resources/help.png" />
@@ -67,8 +67,70 @@
             </MenuItem>
         </Menu>
 
-        <Grid Grid.Row="1">
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
 
+            <GroupBox Grid.Row="0" Header="Locator">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <RadioButton Margin="3" Grid.Row="0" Grid.Column="0" Content="Red" IsChecked="True" />
+                        <RadioButton Margin="3" Grid.Row="0" Grid.Column="1" Content="Green" />
+                        <RadioButton Margin="3" Grid.Row="0" Grid.Column="2" Content="Blue" />
+                        <RadioButton Margin="3" Grid.Row="0" Grid.Column="3" Content="Black" />
+                        <RadioButton Margin="3" Grid.Row="0" Grid.Column="4" Content="Random" />
+
+                        <RadioButton Margin="3" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" Content="Custom" />
+                        <syncfusion:ColorPicker Margin="3" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4"></syncfusion:ColorPicker>
+
+                        <Label VerticalAlignment="Center" Margin="3" Grid.Row="2" Grid.Column="0" Content="Interval:" />
+                        <Slider Margin="3" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="4" Minimum="1" Maximum="10000" />
+
+                        <Button Margin="3" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="5" Content="Start" />
+                    </Grid>
+
+                </Grid>
+            </GroupBox>
+
+            <GroupBox Grid.Row="1" Header="Pixel fixer">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Label Margin="3" Content="Interval:" />
+                    <Slider Grid.Column="1" Margin="3" Minimum="1" Maximum="10000" />
+                    <Button Grid.Column="2" Margin="3" Content="Start" />
+
+                </Grid>
+
+            </GroupBox>
         </Grid>
 
     </Grid>

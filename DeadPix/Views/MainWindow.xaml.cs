@@ -2,7 +2,9 @@
 using System.Reflection;
 using System.Windows;
 using System.Windows.Input;
+using CodeDead.UpdateManager.Classes;
 using DeadPix.Business.Gui;
+using DeadPix.Business.Locator;
 
 namespace DeadPix.Views
 {
@@ -13,10 +15,8 @@ namespace DeadPix.Views
     public partial class MainWindow
     {
         #region Variables
-        /// <summary>
-        /// The UpdateManager that can be used to check for updates
-        /// </summary>
-        private readonly UpdateManager.Classes.UpdateManager _updateManager;
+        private readonly UpdateManager _updateManager;
+        private LocatorController _locatorController;
         #endregion
 
         /// <inheritdoc />
@@ -29,7 +29,19 @@ namespace DeadPix.Views
             ChangeStyle();
             LoadProperties();
 
-            _updateManager = new UpdateManager.Classes.UpdateManager(Assembly.GetExecutingAssembly().GetName().Version, "https://codedead.com/Software/DeadPix/update.xml", "DeadPix", "Information", "Cancel", "Download", "No new version is currently available.");
+            _locatorController = new LocatorController();
+
+            StringVariables stringVariables = new StringVariables
+            {
+                CancelButtonText = "Cancel",
+                DownloadButtonText = "Download",
+                InformationButtonText = "Information",
+                NoNewVersionText = "You are using the latest version!",
+                TitleText = "DeadPix",
+                UpdateNowText = "Would you like to update the application now?"
+            };
+
+            _updateManager = new UpdateManager(Assembly.GetExecutingAssembly().GetName().Version, "https://codedead.com/Software/DeadPix/update.xml", stringVariables);
 
             try
             {

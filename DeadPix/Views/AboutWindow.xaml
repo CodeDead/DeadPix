@@ -23,13 +23,13 @@
             <Image Width="64" Height="64" Source="/DeadPix;component/Resources/DeadPix.png" />
             <Separator Margin="5" Grid.Column="1" Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
             <TextBlock Grid.Column="2">
-                DeaadPix was created by DeadLine.<LineBreak />
+                DeadPix was created by DeadLine.<LineBreak />
                 <LineBreak />
                 Images: small-n-flat by paomedia<LineBreak />
                 Theme: Syncfusion<LineBreak />
                 Version: 1.2.0.0<LineBreak />
                 <LineBreak />
-                Copyright © CodeDead 2018
+                Copyright © 2019 CodeDead
             </TextBlock>
         </Grid>
         <Grid Grid.Row="1">
@@ -38,9 +38,9 @@
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <Button Margin="5" x:Name="BtnClose" Content="Close" Click="BtnClose_OnClick" />
-            <Button Margin="5"  Grid.Column="1" x:Name="BtnLicense" Content="License" Click="BtnLicense_OnClick" />
-            <Button Margin="5" Grid.Column="2" x:Name="BtnCodeDead" Content="CodeDead" Click="BtnCodeDead_OnClick" />
+            <Button Margin="5" Content="Close" Click="BtnClose_OnClick" />
+            <Button Margin="5"  Grid.Column="1" Content="License" Click="BtnLicense_OnClick" />
+            <Button Margin="5" Grid.Column="2" Content="CodeDead" Click="BtnCodeDead_OnClick" />
         </Grid>
     </Grid>
 </syncfusion:ChromelessWindow>

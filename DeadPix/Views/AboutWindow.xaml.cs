@@ -85,7 +85,7 @@ namespace DeadPix.Views
         /// Open the CodeDead website
         /// </summary>
         /// <param name="sender">The object that called this method</param>
-        /// <param name="e">The RoutedEventArgss</param>
+        /// <param name="e">The RoutedEventArgs</param>
         private void BtnCodeDead_OnClick(object sender, RoutedEventArgs e)
         {
             try
