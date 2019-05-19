@@ -4,8 +4,9 @@ using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
 using CodeDead.UpdateManager.Classes;
+using DeadPix.Business.Controller;
 using DeadPix.Business.Gui;
-using DeadPix.Business.Locator;
+using DeadPix.Business.Utils;
 
 namespace DeadPix.Views
 {
@@ -39,7 +40,7 @@ namespace DeadPix.Views
                 InformationButtonText = "Information",
                 NoNewVersionText = "You are using the latest version!",
                 TitleText = "DeadPix",
-                UpdateNowText = "Would you like to update the application now?"
+                UpdateNowText = "Would you like to update DeadPix now?"
             };
 
             _updateManager = new UpdateManager(Assembly.GetExecutingAssembly().GetName().Version, "https://codedead.com/Software/DeadPix/update.xml", stringVariables);
@@ -207,7 +208,7 @@ namespace DeadPix.Views
         /// <param name="e">The RoutedEventArgs</param>
         private void BtnLocator_OnClick(object sender, RoutedEventArgs e)
         {
-            Color selectedColor = _locatorController.GenerateColor();
+            Color selectedColor = Utils.GenerateColor();
             if (RdbRed.IsChecked != null && RdbRed.IsChecked.Value) selectedColor = Colors.Red;
             if (RdbGreen.IsChecked != null && RdbGreen.IsChecked.Value) selectedColor = Colors.Green;
             if (RdbBlue.IsChecked != null && RdbBlue.IsChecked.Value) selectedColor = Colors.Blue;
@@ -228,6 +229,38 @@ namespace DeadPix.Views
 
             _locatorController.SelectedColor = selectedColor;
             new LocatorWindow(_locatorController).ShowDialog();
+        }
+
+        /// <summary>
+        /// Method that is called when the SelectorWindow should be opened
+        /// </summary>
+        /// <param name="sender">The object that called this method</param>
+        /// <param name="e">The RoutedEventArgs</param>
+        private void BtnFixer_OnClick(object sender, RoutedEventArgs e)
+        {
+            FixerController controller = new FixerController {Interval = (int) SldFixerInterval.Value};
+            if (ChbStopAfter.IsChecked != null && IntStopAfter.Value != null && ChbStopAfter.IsChecked.Value)
+            {
+                int stopAfter;
+                switch (CboStopAfter.SelectedIndex)
+                {
+                    default:
+                        stopAfter = (int) IntStopAfter.Value.Value;
+                        break;
+                    case 1:
+                        stopAfter = (int)IntStopAfter.Value.Value * 1000;
+                        break;
+                    case 2:
+                        stopAfter = (int)IntStopAfter.Value.Value * 60 * 1000;
+                        break;
+                    case 3:
+                        stopAfter = (int)IntStopAfter.Value.Value * 60 * 60 * 1000;
+                        break;
+                }
+
+                controller.StopAfter = stopAfter;
+            }
+            new FixerWindow(controller).Show();
         }
     }
 }

@@ -8,7 +8,7 @@
     mc:Ignorable="d" UseLayoutRounding="True"
     UseNativeChrome="True" TitleTextAlignment="Center"
     WindowStartupLocation="CenterScreen"
-    Title="DeadPix" Height="300" Width="450" Icon="/DeadPix;component/Resources/DeadPix.png">
+    Title="DeadPix" Height="320" Width="450" Icon="/DeadPix;component/Resources/DeadPix.png">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -102,10 +102,10 @@
                         <RadioButton Name="RdbRandom" Margin="3" Grid.Row="0" Grid.Column="4" Content="Random" />
                         <RadioButton Name="RdbCustom" Margin="3" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" Content="Custom" />
 
-                        <syncfusion:ColorPicker Name="CpLocatorCustom" Margin="3" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4"></syncfusion:ColorPicker>
+                        <syncfusion:ColorPicker Name="CpLocatorCustom" Margin="3" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" />
 
                         <Label VerticalAlignment="Center" Margin="3" Grid.Row="2" Grid.Column="0" Content="Interval:" />
-                        <Slider Name="SldLocatorInterval" Margin="3" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="4" Minimum="500" Maximum="20000" />
+                        <Slider Name="SldLocatorInterval" Margin="3" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="4" Minimum="500" Maximum="20000" Value="1000" />
 
                         <Button Margin="3" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="5" Content="Start" Click="BtnLocator_OnClick" />
                     </Grid>
@@ -122,14 +122,22 @@
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
 
-                    <Label Margin="3" Content="Interval:" />
-                    <Slider Grid.Column="1" Margin="3" Minimum="1" Maximum="10000" />
-                    <Button Grid.Column="2" Margin="3" Content="Start" />
+                    <Label Grid.Row="0" Grid.Column="0" Margin="3" Content="Interval:" />
+                    <Slider Name="SldFixerInterval" Grid.Row="0" Grid.Column="1" Margin="3" Minimum="1" Maximum="10000" Value="50" />
+                    <Button Grid.Row="0" Grid.Column="2" Margin="3" Content="Start" Click="BtnFixer_OnClick" />
 
+                    <CheckBox Name="ChbStopAfter"  Grid.Row="1" Grid.Column="0" Margin="3" Content="Stop after" />
+                    <syncfusion:IntegerTextBox Name="IntStopAfter" Grid.Row="1" Margin="3" Grid.Column="1" MinValue="1" />
+                    <ComboBox Grid.Row="1" Name="CboStopAfter" Grid.Column="2" Margin="3" SelectedIndex="3">
+                        <ComboBoxItem Content="Millisecond(s)" />
+                        <ComboBoxItem Content="Second(s)" />
+                        <ComboBoxItem Content="Minute(s)" />
+                        <ComboBoxItem Content="Hour(s)" />
+                    </ComboBox>
                 </Grid>
-
             </GroupBox>
         </Grid>
 

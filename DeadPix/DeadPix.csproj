@@ -69,10 +69,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Business\Controller\FixerController.cs" />
+    <Compile Include="Business\Events\Events.cs" />
     <Compile Include="Business\Gui\StyleManager.cs" />
-    <Compile Include="Business\Locator\LocatorController.cs" />
+    <Compile Include="Business\Controller\LocatorController.cs" />
+    <Compile Include="Business\Utils\Utils.cs" />
     <Compile Include="Views\AboutWindow.xaml.cs">
       <DependentUpon>AboutWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FixerWindow.xaml.cs">
+      <DependentUpon>FixerWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LocatorWindow.xaml.cs">
       <DependentUpon>LocatorWindow.xaml</DependentUpon>
@@ -85,6 +91,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\AboutWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FixerWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
