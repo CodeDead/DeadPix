@@ -106,5 +106,17 @@ namespace DeadPix.Properties {
                 this["AutoUpdate"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool LocatorChangeColorOnClick {
+            get {
+                return ((bool)(this["LocatorChangeColorOnClick"]));
+            }
+            set {
+                this["LocatorChangeColorOnClick"] = value;
+            }
+        }
     }
 }

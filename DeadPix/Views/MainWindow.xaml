@@ -95,19 +95,19 @@
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
 
-                        <RadioButton Margin="3" Grid.Row="0" Grid.Column="0" Content="Red" IsChecked="True" />
-                        <RadioButton Margin="3" Grid.Row="0" Grid.Column="1" Content="Green" />
-                        <RadioButton Margin="3" Grid.Row="0" Grid.Column="2" Content="Blue" />
-                        <RadioButton Margin="3" Grid.Row="0" Grid.Column="3" Content="Black" />
-                        <RadioButton Margin="3" Grid.Row="0" Grid.Column="4" Content="Random" />
+                        <RadioButton Name="RdbRed" Margin="3" Grid.Row="0" Grid.Column="0" Content="Red" IsChecked="True" />
+                        <RadioButton Name="RdbGreen" Margin="3" Grid.Row="0" Grid.Column="1" Content="Green" />
+                        <RadioButton Name="RdbBlue" Margin="3" Grid.Row="0" Grid.Column="2" Content="Blue" />
+                        <RadioButton Name="RdbBlack" Margin="3" Grid.Row="0" Grid.Column="3" Content="Black" />
+                        <RadioButton Name="RdbRandom" Margin="3" Grid.Row="0" Grid.Column="4" Content="Random" />
+                        <RadioButton Name="RdbCustom" Margin="3" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" Content="Custom" />
 
-                        <RadioButton Margin="3" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" Content="Custom" />
-                        <syncfusion:ColorPicker Margin="3" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4"></syncfusion:ColorPicker>
+                        <syncfusion:ColorPicker Name="CpLocatorCustom" Margin="3" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4"></syncfusion:ColorPicker>
 
                         <Label VerticalAlignment="Center" Margin="3" Grid.Row="2" Grid.Column="0" Content="Interval:" />
-                        <Slider Margin="3" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="4" Minimum="1" Maximum="10000" />
+                        <Slider Name="SldLocatorInterval" Margin="3" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="4" Minimum="500" Maximum="20000" />
 
-                        <Button Margin="3" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="5" Content="Start" />
+                        <Button Margin="3" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="5" Content="Start" Click="BtnLocator_OnClick" />
                     </Grid>
 
                 </Grid>

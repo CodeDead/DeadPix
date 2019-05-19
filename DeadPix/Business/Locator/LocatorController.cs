@@ -9,7 +9,7 @@ namespace DeadPix.Business.Locator
     /// <summary>
     /// Internal sealed class that contains the logic for locating dead pixels
     /// </summary>
-    internal sealed class LocatorController
+    public sealed class LocatorController
     {
         #region Variables
         private bool _randomColors;
@@ -69,8 +69,17 @@ namespace DeadPix.Business.Locator
         /// <param name="e">The EventArgs</param>
         private void DispatcherTimer_Tick(object sender, EventArgs e)
         {
-            SelectedColor = Color.FromRgb((byte)_rnd.Next(1, 255), (byte)_rnd.Next(1, 255), (byte)_rnd.Next(1, 255));
+            SelectedColor = GenerateColor();
             ColorChangedEvent?.Invoke(SelectedColor);
+        }
+
+        /// <summary>
+        /// Generate a new random color
+        /// </summary>
+        /// <returns>A randomly generated color</returns>
+        internal Color GenerateColor()
+        {
+            return Color.FromRgb((byte)_rnd.Next(1, 255), (byte)_rnd.Next(1, 255), (byte)_rnd.Next(1, 255));
         }
     }
 }

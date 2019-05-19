@@ -2,6 +2,7 @@
 using System.Reflection;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media;
 using CodeDead.UpdateManager.Classes;
 using DeadPix.Business.Gui;
 using DeadPix.Business.Locator;
@@ -16,7 +17,7 @@ namespace DeadPix.Views
     {
         #region Variables
         private readonly UpdateManager _updateManager;
-        private LocatorController _locatorController;
+        private readonly LocatorController _locatorController;
         #endregion
 
         /// <inheritdoc />
@@ -197,6 +198,36 @@ namespace DeadPix.Views
         private void UpdateMenuItem_OnClick(object sender, RoutedEventArgs e)
         {
             _updateManager.CheckForUpdate(true, true);
+        }
+
+        /// <summary>
+        /// Method that is called when the Locator button is activated
+        /// </summary>
+        /// <param name="sender">The object that called this method</param>
+        /// <param name="e">The RoutedEventArgs</param>
+        private void BtnLocator_OnClick(object sender, RoutedEventArgs e)
+        {
+            Color selectedColor = _locatorController.GenerateColor();
+            if (RdbRed.IsChecked != null && RdbRed.IsChecked.Value) selectedColor = Colors.Red;
+            if (RdbGreen.IsChecked != null && RdbGreen.IsChecked.Value) selectedColor = Colors.Green;
+            if (RdbBlue.IsChecked != null && RdbBlue.IsChecked.Value) selectedColor = Colors.Blue;
+            if (RdbBlack.IsChecked != null && RdbBlack.IsChecked.Value) selectedColor = Colors.Black;
+            if (RdbRandom.IsChecked != null)
+            {
+                if (RdbRandom.IsChecked.Value)
+                {
+                    _locatorController.RandomizeColors = true;
+                    _locatorController.Interval = (int) SldLocatorInterval.Value;
+                }
+                else
+                {
+                    _locatorController.RandomizeColors = false;
+                }
+            }
+            if (RdbCustom.IsChecked != null && RdbCustom.IsChecked.Value) selectedColor = CpLocatorCustom.Color;
+
+            _locatorController.SelectedColor = selectedColor;
+            new LocatorWindow(_locatorController).ShowDialog();
         }
     }
 }
