@@ -6,7 +6,7 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         MouseDoubleClick="FixerWindow_OnMouseDoubleClick"
-        Topmost="True"
+        Topmost="True" KeyUp="FixerWindow_OnKeyUp"
         Title="DeadPix - Pixel Fixer" Height="450" Width="800" >
     <Grid>
 

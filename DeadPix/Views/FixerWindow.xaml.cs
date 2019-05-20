@@ -68,5 +68,15 @@ namespace DeadPix.Views
                 ResizeMode = ResizeMode.NoResize;
             }
         }
+
+        /// <summary>
+        /// Method that is called when a key is released
+        /// </summary>
+        /// <param name="sender">The object that called this method</param>
+        /// <param name="e">The KeyEventArgs</param>
+        private void FixerWindow_OnKeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape) Close();
+        }
     }
 }
