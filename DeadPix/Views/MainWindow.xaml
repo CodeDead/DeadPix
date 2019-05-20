@@ -7,7 +7,7 @@
     xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
     mc:Ignorable="d" UseLayoutRounding="True"
     UseNativeChrome="True" TitleTextAlignment="Center"
-    WindowStartupLocation="CenterScreen"
+    WindowStartupLocation="CenterScreen" AllowsTransparency="True"
     Title="DeadPix" Height="320" Width="450" Icon="/DeadPix;component/Resources/DeadPix.png">
     <Grid>
         <Grid.RowDefinitions>
@@ -24,7 +24,7 @@
                 </MenuItem>
             </MenuItem>
             <MenuItem Header="_Tools">
-                <MenuItem Header="Settings">
+                <MenuItem Header="Settings" Click="SettingsMenuItem_OnClick">
                     <MenuItem.Icon>
                         <Image Width="16" Height="16" Source="/DeadPix;component/Resources/settings.png" />
                     </MenuItem.Icon>

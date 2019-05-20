@@ -28,7 +28,7 @@ namespace DeadPix.Views
         public MainWindow()
         {
             InitializeComponent();
-            ChangeStyle();
+            StyleManager.ChangeStyle(this);
             LoadProperties();
 
             _locatorController = new LocatorController();
@@ -56,14 +56,6 @@ namespace DeadPix.Views
             {
                 MessageBox.Show(ex.Message, "DeadPix", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-        }
-
-        /// <summary>
-        /// Change the style of this window
-        /// </summary>
-        internal void ChangeStyle()
-        {
-            StyleManager.ChangeStyle(this);
         }
 
         /// <summary>
@@ -121,6 +113,16 @@ namespace DeadPix.Views
         private void AboutMenuItem_OnClick(object sender, RoutedEventArgs e)
         {
             new AboutWindow().ShowDialog();
+        }
+
+        /// <summary>
+        /// Method that is called when the SettingsWindow should be opened
+        /// </summary>
+        /// <param name="sender">The object that called this method</param>
+        /// <param name="e">The RoutedEventArgs</param>
+        private void SettingsMenuItem_OnClick(object sender, RoutedEventArgs e)
+        {
+            new SettingsWindow(this).ShowDialog();
         }
 
         /// <summary>
