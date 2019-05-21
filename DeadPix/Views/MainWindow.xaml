@@ -113,7 +113,7 @@
                 </Grid>
             </GroupBox>
 
-            <GroupBox Grid.Row="1" Header="Pixel fixer">
+            <GroupBox Grid.Row="1" Header="Pixel Fixer">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
