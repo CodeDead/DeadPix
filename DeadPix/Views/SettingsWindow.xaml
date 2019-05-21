@@ -30,7 +30,7 @@
                               IsChecked="{utils:SettingsBinder AutoUpdate}" />
                     <CheckBox Grid.Row="1" Content="Window draggable" Margin="2"
                               IsChecked="{utils:SettingsBinder WindowDraggable}" />
-                    <CheckBox Grid.Row="2" Content="Change color on click"
+                    <CheckBox Grid.Row="2" Content="Change color on click" Margin="2"
                               IsChecked="{utils:SettingsBinder LocatorChangeColorOnClick}" />
                 </Grid>
             </syncfusion:TabItemExt>
