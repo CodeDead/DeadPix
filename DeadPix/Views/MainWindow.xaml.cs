@@ -43,7 +43,7 @@ namespace DeadPix.Views
                 UpdateNowText = "Would you like to update DeadPix now?"
             };
 
-            _updateManager = new UpdateManager(Assembly.GetExecutingAssembly().GetName().Version, "https://codedead.com/Software/DeadPix/update.xml", stringVariables);
+            _updateManager = new UpdateManager(Assembly.GetExecutingAssembly().GetName().Version, "https://codedead.com/Software/DeadPix/update.json", stringVariables, DataType.Json);
 
             try
             {
